@@ -1,0 +1,22 @@
+.descriptionBlock {
+    padding: 10px;
+}
+
+.mainPhoto {
+    max-width: 300px;
+}
+
+.contact {
+    padding-left: 30px;
+}
+
+.descriptionBlock img {
+
+    border-style: solid;
+    border-radius: 200px;
+    border-color: black;
+}
+
+.descriptionProfile {
+  color: #e3e2e1;
+}
