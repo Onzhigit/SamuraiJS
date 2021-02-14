@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import styles from './Paginator.module.css'
-import cn from 'classnames'
+
 
 type PropsType = {
     totalItemsCount: number
@@ -29,26 +28,25 @@ let Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize,
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    return <div className={cn(styles.paginator)}>
-        { portionNumber > 1 &&
-        <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
-
+    return <>
+            <nav aria-label="...">
+             <ul className="pagination">
+              <li >
+               { portionNumber > 1 &&  <a className="page-link" aria-disabled="true" onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</a>}
+              </li>
             {pages
                 .filter(p => p >= leftPortionPageNumber && p<=rightPortionPageNumber)
                 .map((p) => {
-                return <span className={ cn({
-                    [styles.selectedPage]: currentPage === p
-                }, styles.pageNumber) }
+                return <a className="page-link"
                              key={p}
                              onClick={(e) => {
-                                 onPageChanged(p);
-                             }}>{p}</span>
-            })}
-        { portionCount > portionNumber &&
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button> }
-
-
-    </div>
+                                 onPageChanged(p)
+                             }}>{p}</a>})}
+          { portionCount > portionNumber &&
+            <a className="page-link" aria-disabled="true" onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</a> }
+            </ul>
+          </nav>
+         </>
 }
 
 export default Paginator;

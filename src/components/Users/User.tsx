@@ -12,16 +12,15 @@ type PropsType = {
 }
 
 const User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
-    return (
-        <div>
-                <span>
+    return <>
+        <div className="card" >
                     <div>
                        <NavLink to={'/profile/' + user.id}>
-                        <img src={user.photos.small != null ? user.photos.small : userPhoto}
-                             className={styles.userPhoto}/>
+                        <img className="card-img-top" alt="..." src={user.photos.small != null ? user.photos.small : userPhoto}
+                             />
                        </NavLink>
                     </div>
-                    <div>
+                    <div className="card-body">
                         {user.followed
                             ? <button disabled={followingInProgress
                                 .some(id => id === user.id)}
@@ -34,20 +33,20 @@ const User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}
                                           follow(user.id)
                                       }}>
                                 Follow</button>}
-
                     </div>
-                </span>
-            <span>
-                    <span>
-                        <div>{user.name}</div>
-                        <div>{user.status}</div>
-                    </span>
-                    <span>
-                        <div>{'user.location.country'}</div>
-                        <div>{'user.location.city'}</div>
-                    </span>
-                </span>
-        </div>)
+            
+                  <ul className="list-group list-group-flush">
+                        <li className="list-group-item">{user.name}</li>
+                        <li className="list-group-item">{user.status}</li>
+
+                        <li className="list-group-item">{'user.location.country'}</li>
+                        <li className="list-group-item">{'user.location.city'}</li>
+              </ul>
+
+        </div>
+
+
+      </>
 }
 
 export default User

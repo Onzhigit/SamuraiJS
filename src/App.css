@@ -18,20 +18,10 @@
 }
 
 
+.nav-link {
+  color:white;
+}
 
-
-
-
-
-
-
-
-/*
-
-/messages
-/dialogs
-
-/dialogs/3
-/dialogs/2
-
-*/
+.nav-link:hover {
+  color: green;
+}

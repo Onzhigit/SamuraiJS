@@ -11,7 +11,7 @@ type UsersPagePropsType = {
 export const UsersPage: React.FC<UsersPagePropsType> = (props) => {
     const isFetching = useSelector(getIsFetching)
     return <>
-        <h2>{props.pageTitle}</h2>
+        <h1 className="display-5">{props.pageTitle}</h1>
         {isFetching ? <Preloader/> : null}
         <Users />
     </>

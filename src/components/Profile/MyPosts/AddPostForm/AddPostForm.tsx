@@ -14,16 +14,12 @@ export type AddPostFormValuesType = {
 type AddPostFormValuesTypeKeys = GetStringKeys<AddPostFormValuesType>
 
 const AddPostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsType> & PropsType> = (props) => {
-    return (
+    return <>
             <form onSubmit={props.handleSubmit}>
-                <div>
-                    { createField<AddPostFormValuesTypeKeys>("Your post", 'newPostText', [required], Input) }
-                </div>
-                <div>
-                    <button>Add post</button>
-                </div>
-            </form>
-    )
+            { createField<AddPostFormValuesTypeKeys>("Your post", 'newPostText', [required], Input) }
+            <button className="btn btn-secondary">Add post</button>
+           </form>
+    </>
 }
 
 export default reduxForm<AddPostFormValuesType, PropsType>({form: 'profile-add-post'})(AddPostForm)
