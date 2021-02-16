@@ -1,11 +1,11 @@
-import React from 'react';
-import s from './MyPosts.module.css';
-import Post from './Post/Post';
-import {Field, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../../utils/validators/validators";
-import {Textarea} from "../../common/FormsControls/FormsControls";
-import AddPostForm, {AddPostFormValuesType} from './AddPostForm/AddPostForm';
-import {PostType} from '../../../types/types';
+import React from 'react'
+import s from './MyPosts.module.css'
+import Post from './Post/Post'
+import {Field, reduxForm} from "redux-form"
+import {maxLengthCreator, required} from "../../../utils/validators/validators"
+import {Textarea} from "../../common/FormsControls/FormsControls"
+import AddPostForm, {AddPostFormValuesType} from './AddPostForm/AddPostForm'
+import {PostType} from '../../../types/types'
 
 
 export type MapPropsType = {
@@ -19,10 +19,10 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = props => {
     let postsElements =
         [...props.posts]
             .reverse()
-            .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
+            .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     let onAddPost = (values: AddPostFormValuesType) => {
-        props.addPost(values.newPostText);
+        props.addPost(values.newPostText)
     }
 
     return (
@@ -36,6 +36,6 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = props => {
     )
 }
 
-const MyPostsMemorized = React.memo(MyPosts);
+const MyPostsMemorized = React.memo(MyPosts)
 
-export default MyPostsMemorized;
+export default MyPostsMemorized

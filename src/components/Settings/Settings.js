@@ -1,12 +1,10 @@
-import React from 'react';
-import InProgress from '../common/InProgress/InProgress';
+import React from 'react'
+import InProgress from '../common/InProgress/InProgress'
 
 const Settings = () => {
-  return (
-    <div>
+  return  <>
      <InProgress />
-    </div>
-  )
-};
+    </>
+}
 
-export default Settings;
+export default Settings

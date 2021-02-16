@@ -49,4 +49,4 @@ let Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize,
          </>
 }
 
-export default Paginator;
+export default Paginator

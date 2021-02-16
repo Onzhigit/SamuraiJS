@@ -1,10 +1,10 @@
-import {ResultCodeForCapcthaEnum, ResultCodesEnum} from "../api/api";
-import {stopSubmit} from "redux-form";
-import {authAPI} from '../api/auth-api';
-import {securityAPI} from '../api/security-api';
-import {BaseThunkType, InferActionsTypes} from './redux-store';
-import {Action} from 'redux';
-import {FormAction} from 'redux-form/lib/actions';
+import {ResultCodeForCapcthaEnum, ResultCodesEnum} from "../api/api"
+import {stopSubmit} from "redux-form"
+import {authAPI} from '../api/auth-api'
+import {securityAPI} from '../api/security-api'
+import {BaseThunkType, InferActionsTypes} from './redux-store'
+import {Action} from 'redux'
+import {FormAction} from 'redux-form/lib/actions'
 
 let initialState = {
     userId: null as (number | null),
@@ -12,7 +12,7 @@ let initialState = {
     login: null as string | null,
     isAuth: false,
     captchaUrl: null as string | null// if null, then captcha is not required
-};
+}
 
 const authReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
@@ -23,7 +23,7 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
                 ...action.payload
             }
         default:
-            return state;
+            return state
     }
 }
 
@@ -51,11 +51,11 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
         dispatch(getAuthUserData())
     } else {
         if (data.resultCode === ResultCodeForCapcthaEnum.CaptchaIsRequired) {
-            dispatch(getCaptchaUrl());
+            dispatch(getCaptchaUrl())
         }
 
         let message = data.messages.length > 0 ? data.messages[0] : "Some error";
-        dispatch(stopSubmit("login", {_error: message}));
+        dispatch(stopSubmit("login", {_error: message}))
     }
 }
 
@@ -73,8 +73,8 @@ export const logout = (): ThunkType => async (dispatch: any) => {
     }
 }
 
-export default authReducer;
+export default authReducer
 
-export type InitialStateType = typeof initialState;
+export type InitialStateType = typeof initialState
 type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType | FormAction>

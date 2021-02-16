@@ -33,4 +33,8 @@ export type UserType = {
     status: string
     photos: PhotosType
     followed: boolean
+    location: {
+      country: string | null,
+      city: string | null
+    },
 }

@@ -84,21 +84,15 @@ export const Users: FC<PropsType> = (props) => {
     }
 
     return <div>
-
         <UsersSearchForm onFilterChanged={onFilterChanged}/>
-
         <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount} pageSize={pageSize}/>
         <div>
-            {
-                users.map(u => <User user={u}
-                                     followingInProgress={followingInProgress}
-                                     key={u.id}
-                                     unfollow={unfollow}
-                                     follow={follow}
-                    />
-                )
-            }
+            {users.map(u => <User user={u}
+                                  followingInProgress={followingInProgress}
+                                  key={u.id}
+                                  unfollow={unfollow}
+                                  follow={follow}/>)}
         </div>
     </div>
 }

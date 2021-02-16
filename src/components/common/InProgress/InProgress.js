@@ -1,5 +1,5 @@
-import React from 'react';
-import s from './InProgress.module.css';
+import React from 'react'
+import s from './InProgress.module.css'
 
 const InProgress = () => {
   return (
@@ -9,4 +9,4 @@ const InProgress = () => {
   )
 };
 
-export default InProgress;
+export default InProgress

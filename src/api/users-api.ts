@@ -1,4 +1,4 @@
-import {GetItemsType, instance, APIResponseType} from './api';
+import {GetItemsType, instance, APIResponseType} from './api'
 
 
 export const usersAPI = {

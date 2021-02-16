@@ -14,25 +14,28 @@ type LoginFormOwnProps = {
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps>
     = ({handleSubmit, error, captchaUrl}) => {
-    return (
-        <form onSubmit={handleSubmit}>
+    return <>
+        <form  onSubmit={handleSubmit}>
+          <div className="mb-3">
             {createField<LoginFormValuesTypeKeys>('Email', 'email', [required], Input)}
+            </div>
+            <div className="mb-3">
             {createField<LoginFormValuesTypeKeys>('Password', 'password', [required], Input, {type: 'password'})}
+              </div>
+            <div className="mb-3">
             {createField<LoginFormValuesTypeKeys>(undefined, 'rememberMe', [], Input, {type: 'checkbox'}, 'remember me')}
-
+              </div>
             {captchaUrl && <img src={captchaUrl}/>}
             {captchaUrl && createField<LoginFormValuesTypeKeys>('Symbols from image', 'captcha', [required], Input, {})}
-
-
             {error && <div className={style.formSummaryError}>
                 {error}
             </div>
             }
             <div>
-                <button>Login</button>
+                <button className="btn btn-primary">Login</button>
             </div>
         </form>
-    )
+    </>
 }
 
 const LoginReduxForm = reduxForm<LoginFormValuesType, LoginFormOwnProps>({form: 'login'})(LoginForm)
@@ -58,7 +61,7 @@ export const LoginPage: React.FC = () => {
         return <Redirect to={'/profile'}/>
     }
 
-    return <div>
+    return <div className="login">
         <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>

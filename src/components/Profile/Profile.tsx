@@ -1,7 +1,7 @@
-import React from 'react';
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {ProfileType} from '../../types/types';
+import React from 'react'
+import ProfileInfo from "./ProfileInfo/ProfileInfo"
+import MyPostsContainer from "./MyPosts/MyPostsContainer"
+import {ProfileType} from '../../types/types'
 
 type PropsType = {
     profile: ProfileType | null
@@ -14,7 +14,7 @@ type PropsType = {
 
 const Profile:React.FC<PropsType> = (props) => {
     return (
-        <div>
+        <>
             <ProfileInfo savePhoto={props.savePhoto}
                          isOwner={props.isOwner}
                          profile={props.profile}
@@ -22,8 +22,8 @@ const Profile:React.FC<PropsType> = (props) => {
                          saveProfile={props.saveProfile}
                          updateStatus={props.updateStatus}/>
             <MyPostsContainer />
-        </div>
+        </>
     )
 }
 
-export default Profile;
+export default Profile

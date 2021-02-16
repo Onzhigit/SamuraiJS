@@ -45,10 +45,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-
-        return (
-          <div>
-            <div className='app-wrapper'>
+        return <>
+           <div>
+             <div className='app-wrapper '>
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
@@ -78,10 +77,10 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                render={() => <div>404 NOT FOUND</div>}/>
                     </Switch>
                 </div>
-            </div>
-              <Footer />
-          </div>
-        )
+              </div>
+               <Footer />
+           </div>
+        </>
     }
 }
 

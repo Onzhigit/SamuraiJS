@@ -1,5 +1,5 @@
-import axios from "axios";
-import {UserType} from '../types/types';
+import axios from "axios"
+import {UserType} from '../types/types'
 
 export const instance = axios.create({
     withCredentials: true,
@@ -7,7 +7,7 @@ export const instance = axios.create({
     headers:     {
         "API-KEY": "67b73e13-ab92-4274-9e14-ac50291d9f77"
     }
-});
+})
 
 export enum ResultCodesEnum {
     Success = 0,

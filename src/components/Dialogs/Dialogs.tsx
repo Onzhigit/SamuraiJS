@@ -1,10 +1,10 @@
-import React from 'react';
-import s from './Dialogs.module.css';
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import {Redirect} from "react-router-dom";
-import AddMessageForm from "./AddMessageForm/AddMessageForm";
-import {InitialStateType} from '../../redux/dialogs-reducer';
+import React from 'react'
+import s from './Dialogs.module.css'
+import DialogItem from "./DialogItem/DialogItem"
+import Message from "./Message/Message"
+import {Redirect} from "react-router-dom"
+import AddMessageForm from "./AddMessageForm/AddMessageForm"
+import {InitialStateType} from '../../redux/dialogs-reducer'
 
 type PropsType = {
     dialogsPage: InitialStateType
@@ -16,13 +16,12 @@ export type NewMessageFormValuesType = {
 }
 
 const Dialogs: React.FC<PropsType> = (props) => {
-    let state = props.dialogsPage;
+    let state = props.dialogsPage
 
-    let dialogsElements = state.dialogs.map( d => <DialogItem name={d.name} key={d.id} id={d.id} />  );
-    let messagesElements = state.messages.map( m => <Message message={m.message} key={m.id} /> );
-
+    let dialogsElements = state.dialogs.map( d => <DialogItem name={d.name} key={d.id} id={d.id} />  )
+    let messagesElements = state.messages.map( m => <Message message={m.message} key={m.id} /> )
     let addNewMessage = (values: NewMessageFormValuesType) => {
-        props.sendMessage(values.newMessageBody);
+        props.sendMessage(values.newMessageBody)
     }
 
     return (
@@ -38,4 +37,4 @@ const Dialogs: React.FC<PropsType> = (props) => {
     )
 }
 
-export default Dialogs;
+export default Dialogs
